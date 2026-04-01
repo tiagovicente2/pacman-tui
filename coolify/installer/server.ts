@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const port = Number(process.env.PORT ?? 3000);
-const repo = (process.env.PACMAN_TUI_REPO ?? '').trim();
+const repo = (process.env.PACMAN_TUI_REPO ?? 'tiagovicente2/pacman-tui').trim();
 const installScriptPath = join(import.meta.dir, '..', '..', 'install.sh');
 const installScriptTemplate = readFileSync(installScriptPath, 'utf8');
 
@@ -29,13 +29,6 @@ const server = Bun.serve({
     }
 
     if (url.pathname === '/install.sh') {
-      if (!repo) {
-        return new Response('Missing PACMAN_TUI_REPO on server\n', {
-          status: 500,
-          headers: { 'content-type': 'text/plain; charset=utf-8' },
-        });
-      }
-
       return new Response(buildInstallScript(repo), {
         headers: {
           'content-type': 'text/x-shellscript; charset=utf-8',
@@ -49,8 +42,6 @@ const server = Bun.serve({
       'pacman-tui installer service',
       '',
       `curl -fsSL ${installUrl} | sh`,
-      '',
-      'Set PACMAN_TUI_REPO on this service to owner/repo.',
       '',
     ].join('\n');
 

@@ -5,7 +5,7 @@ set -eu
 APP_NAME="pacman-tui"
 INSTALL_DIR="${INSTALL_DIR:-$HOME/.local/bin}"
 VERSION="latest"
-REPO="${PACMAN_TUI_REPO:-}"
+REPO="${PACMAN_TUI_REPO:-tiagovicente2/pacman-tui}"
 
 print_usage() {
   cat <<'EOF'
@@ -15,15 +15,15 @@ Usage:
   install.sh [--repo <owner/repo>] [--version <tag>] [--install-dir <path>]
 
 Options:
-  --repo         GitHub repository in owner/repo format
+  --repo         GitHub repository in owner/repo format (default: tiagovicente2/pacman-tui)
   --version      Release tag (default: latest)
   --install-dir  Install directory (default: ~/.local/bin)
   -h, --help     Show this help
 
 Examples:
-  PACMAN_TUI_REPO=your-org/pacman-tui install.sh
+  install.sh
+  install.sh --version v1.0.0
   install.sh --repo your-org/pacman-tui
-  install.sh --repo your-org/pacman-tui --version v1.0.0
 EOF
 }
 
@@ -59,12 +59,6 @@ while [ "$#" -gt 0 ]; do
       ;;
   esac
 done
-
-if [ -z "$REPO" ]; then
-  echo "Error: repository is required (--repo or PACMAN_TUI_REPO)." >&2
-  print_usage
-  exit 1
-fi
 
 require_command curl
 require_command uname

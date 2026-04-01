@@ -10,10 +10,10 @@ A terminal user interface for managing Arch Linux packages (pacman) and AUR pack
 
 ## Installation
 
-### Option 1: Install from your Coolify URL (recommended)
+### Option 1: Install from hosted installer (recommended)
 
 ```bash
-curl -fsSL https://install.your-domain.com/install.sh | sh
+curl -fsSL https://ptui.arpgg.io/install.sh | sh
 ```
 
 Notes:
@@ -21,20 +21,7 @@ Notes:
 - Default install location is `~/.local/bin`.
 - No shell alias is needed; just ensure `~/.local/bin` is in your `PATH`.
 
-### Deploy the installer on Coolify
-
-Use `coolify/installer/Dockerfile` and set:
-
-- `PACMAN_TUI_REPO=<owner>/<repo>` (required)
-- `PORT=3000` (optional)
-
-After deploy, your public install command is:
-
-```bash
-curl -fsSL https://install.your-domain.com/install.sh | sh
-```
-
-### Option 2: Run from source
+### Option 2: Run locally from source (Bun)
 
 ```bash
 bun install
