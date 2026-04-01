@@ -1,0 +1,29 @@
+{
+  "name": "pacman-tui",
+  "version": "1.0.0",
+  "description": "TUI for managing pacman and AUR packages using PARU",
+  "type": "module",
+  "main": "src/main.ts",
+  "bin": {
+    "pacman-tui": "./src/main.ts"
+  },
+  "keywords": ["pacman", "aur", "arch-linux", "tui", "paru", "package-manager"],
+  "license": "MIT",
+  "scripts": {
+    "start": "bun src/main.ts",
+    "dev": "bun --watch src/main.ts",
+    "lint": "tsc --noEmit",
+    "build": "bun build src/main.ts --outdir ./dist --target bun",
+    "build:binary": "bun build src/main.ts --compile --outfile dist/pacman-tui"
+  },
+  "dependencies": {
+    "@opentui/core": "^0.1.95"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
