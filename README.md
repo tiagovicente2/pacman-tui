@@ -2,6 +2,9 @@
 
 A terminal user interface for managing Arch Linux packages (pacman) and AUR packages using PARU.
 
+<img width="1341" height="877" alt="image" src="https://github.com/user-attachments/assets/2f2768fa-2264-4d38-9ee4-7afc6caab5d0" />
+
+
 ## Prerequisites
 
 - [PARU](https://github.com/Morganamilo/paru) AUR helper installed
