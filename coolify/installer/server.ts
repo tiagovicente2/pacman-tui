@@ -41,7 +41,7 @@ const server = Bun.serve({
     const body = [
       'pacman-tui installer service',
       '',
-      `curl -fsSL ${installUrl} | sh`,
+      `curl -fsSL ${installUrl} | bash`,
       '',
     ].join('\n');
 

@@ -13,7 +13,7 @@ A terminal user interface for managing Arch Linux packages (pacman) and AUR pack
 ### Option 1: Install from hosted installer (recommended)
 
 ```bash
-curl -fsSL https://ptui.arpgg.io/install.sh | sh
+curl -fsSL https://ptui.arpgg.io/install.sh | bash
 ```
 
 Notes:
